@@ -14,14 +14,14 @@ class UniqueValueEstimator<T> {
      * Constructor method for the class
      * @param threshold - The amount of elements allowed in the buffer, a higher threshold will produce a more accurate estimate.
      */
-    public void UniqueValueEstimator(int threshold) {
+    public UniqueValueEstimator(int threshold) {
         this.round = 0;
         this.threshold = threshold;
         this.buffer = new HashSet();
     }
 
     /**
-     * Proccess the inputted element, each element within a stream must go through this method for the class to keep track of all
+     * Process the inputted element, each element within a stream must go through this method for the class to keep track of all
      * the elements within the stream.
      * @param Element - Element in the stream.
      */
@@ -44,8 +44,8 @@ class UniqueValueEstimator<T> {
         Iterator<T> iter = this.buffer.iterator();
         while (iter.hasNext()) {
             iter.next();
-            if (Math.random() < 0.5) {
-                iter.remove();
+            if (Math.random() < 0.5) {            
+                iter.remove();                
             }
         }
         this.round += 1;
